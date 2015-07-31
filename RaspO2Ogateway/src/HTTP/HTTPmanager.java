@@ -2,7 +2,6 @@ package HTTP;
 
 import AppData.ReferenceValue;
 import Protocol.Data;
-import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
@@ -43,6 +42,7 @@ public class HTTPmanager implements HTTPcontroller{
             url = new URL(serverURL);
         } catch (MalformedURLException e) {
             System.out.println("[ERROR] Cannot Connect URL. Terminate program...");
+            e.printStackTrace();
             System.exit(-1);
         }
 

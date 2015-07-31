@@ -38,6 +38,7 @@ public class ArduinoManager implements HWcontroller{
             // Printing Error Message. When cannot connect Arduino.
 
             System.out.println("[ERROR] Cannot connect Arduino. Please check the device");
+            e.printStackTrace();
         }
     }
 
