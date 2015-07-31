@@ -2,6 +2,7 @@ package HTTP;
 
 import AppData.ReferenceValue;
 import Protocol.Data;
+import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
@@ -51,7 +52,7 @@ public class HTTPmanager implements HTTPcontroller{
 
 
     @Override
-    public synchronized Data postJsonData(final Data sensorData) {
+    public synchronized JSONObject postJsonData(final Data sensorData) {
 
 
         String response = null;
@@ -94,13 +95,16 @@ public class HTTPmanager implements HTTPcontroller{
         return null;
     }
 
-    public Data handlePostResponse(String response){
+    public JSONObject handlePostResponse(String response){
 
         try {
-            Data getJsonData = (Data) jsonParser.parse(response);
+            JSONObject getJsonData = (JSONObject) jsonParser.parse(response);
+
+            System.out.println("Get Json Object response");
             return getJsonData;
 
         } catch (ParseException e) {
+            System.out.println("Get But NULL!!");
             return null;
         }
 

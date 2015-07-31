@@ -1,10 +1,11 @@
 package HTTP;
 
 import Protocol.Data;
+import org.json.simple.JSONObject;
 
 /**
  * Created by monibu on 2015. 7. 31..
  */
 public interface HTTPcontroller {
-    Data postJsonData(Data sensorData);
+    JSONObject postJsonData(Data sensorData);
 }

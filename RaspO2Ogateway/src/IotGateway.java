@@ -1,6 +1,7 @@
 import Arduino.ArduinoManager;
 import HTTP.HTTPmanager;
 import Protocol.Data;
+import org.json.simple.JSONObject;
 
 /**
  * Created by monibu on 2015. 7. 31..
@@ -12,7 +13,7 @@ public class IotGateway implements Runnable{
     private static IotGateway iotGateway;
 
     private static Data arduinoData;
-    private static Data httpData;
+    private static JSONObject httpData;
 
     public static void main(String[] args){
 
