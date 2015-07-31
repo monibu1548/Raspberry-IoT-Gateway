@@ -95,7 +95,6 @@ public class HTTPmanager implements HTTPcontroller{
             return getJsonData;
 
         } catch (ParseException e) {
-            e.printStackTrace();
             return null;
         }
 
