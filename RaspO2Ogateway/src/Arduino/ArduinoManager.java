@@ -113,6 +113,7 @@ public class ArduinoManager implements HWcontroller{
 
         try {
             data.putId(ReferenceValue.id);
+            data.put("control", 0);
             data.putHum(dataList[0]);
             data.putTemp(dataList[1]);
             data.putInuse(dataList[2]);
