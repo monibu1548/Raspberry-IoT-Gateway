@@ -70,13 +70,14 @@ public class HTTPmanager implements HTTPcontroller{
             dis = new DataInputStream (httpURLConnection.getInputStream());
 
             dos.write(sensorData.toString().getBytes("UTF-8"));
-
+            dos.flush();
             dos.close();
 
+            int responseCode = httpURLConnection.getResponseCode();
             response = dis.readLine();
 
             System.out.println("[SEND] " + sensorData.toString());
-            System.out.println("[RESPOND] " + response);
+            System.out.println("[RESPOND : " + responseCode + "] " + response);
 
             return handlePostResponse(response);
 
