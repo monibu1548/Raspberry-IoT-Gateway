@@ -51,7 +51,7 @@ public class HTTPmanager implements HTTPcontroller{
 
 
     @Override
-    public Data postJsonData(Data sensorData) {
+    public Data postJsonData(final Data sensorData) {
 
 
         String response = null;
@@ -70,7 +70,7 @@ public class HTTPmanager implements HTTPcontroller{
             dos = new DataOutputStream(httpURLConnection.getOutputStream());
             dis = new DataInputStream (httpURLConnection.getInputStream());
 
-            dos.write(sensorData.toString().getBytes("UTF-8"));
+            dos.writeBytes(sensorData.toString());
             dos.flush();
             dos.close();
 
