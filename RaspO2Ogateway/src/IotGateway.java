@@ -35,6 +35,8 @@ public class IotGateway implements Runnable{
             arduinoData = arduinoManager.getSensorData();
             httpData = httPmanager.postJsonData(arduinoData);
 
+            System.out.println(httpData);
+
             if (httpData != null) {
                 arduinoManager.controlByJson(httpData);
             }
