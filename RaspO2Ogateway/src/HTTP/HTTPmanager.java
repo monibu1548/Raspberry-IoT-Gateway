@@ -71,6 +71,8 @@ public class HTTPmanager implements HTTPcontroller{
 
             dos.write(sensorData.toString().getBytes("UTF-8"));
 
+            dos.close();
+
             response = dis.readLine();
 
             System.out.println("[SEND] " + sensorData.toString());
