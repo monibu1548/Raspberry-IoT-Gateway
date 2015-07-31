@@ -31,22 +31,14 @@ public class IotGateway implements Runnable{
     @Override
     public void run() {
 
-        try {
-            Thread.sleep(1500);
-
+        while (true) {
             arduinoData = arduinoManager.getSensorData();
             httpData = httPmanager.postJsonData(arduinoData);
 
-            if(httpData != null)
-            {
+            if (httpData != null) {
                 arduinoManager.controlByJson(httpData);
             }
-
-
-        } catch (InterruptedException e) {
-            System.out.println("[ERROR] Thread ERROR");
         }
-
 
     }
 }

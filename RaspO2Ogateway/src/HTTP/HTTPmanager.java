@@ -74,7 +74,7 @@ public class HTTPmanager implements HTTPcontroller{
             response = dis.readLine();
 
             System.out.println("[SEND] " + sensorData.toJSONString());
-            System.out.println("Response" + response);
+            System.out.println("[RESPOND] " + response);
 
             return handlePostResponse(response);
 
@@ -92,10 +92,10 @@ public class HTTPmanager implements HTTPcontroller{
 
         try {
             Data getJsonData = (Data) jsonParser.parse(response);
-
             return getJsonData;
 
         } catch (ParseException e) {
+            e.printStackTrace();
             return null;
         }
 
