@@ -69,7 +69,7 @@ public class HTTPmanager implements HTTPcontroller{
             dos = new DataOutputStream(httpURLConnection.getOutputStream());
             dis = new DataInputStream (httpURLConnection.getInputStream());
 
-            dos.write(sensorData.toJSONString().getBytes("utf8"));
+            dos.write(sensorData.toJSONString().getBytes("UTF-8"));
 
             response = dis.readLine();
 
