@@ -99,12 +99,9 @@ public class HTTPmanager implements HTTPcontroller{
 
         try {
             JSONObject getJsonData = (JSONObject) jsonParser.parse(response);
-
-            System.out.println("Get Json Object response");
             return getJsonData;
 
         } catch (ParseException e) {
-            System.out.println("Get But NULL!!");
             return null;
         }
 
