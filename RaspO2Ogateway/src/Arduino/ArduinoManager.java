@@ -82,6 +82,7 @@ public class ArduinoManager implements HWcontroller{
         serialString = light + aircon + proj;
 
         try {
+            System.out.println(serialString);
             this.out.write(serialString.getBytes());
         }catch (IOException ee){
             System.out.println("[ERROR] Cannot Send ControlData to Arduino");
