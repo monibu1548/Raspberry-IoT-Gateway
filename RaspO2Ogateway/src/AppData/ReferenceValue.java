@@ -5,6 +5,6 @@ package AppData;
  */
 public class ReferenceValue {
     public static final int id = 101;
-    public static final String Device = "/dev/ttyACM1";
-    public static final String ServerURL = "";
+    public static final String Device = "/dev/ttyACM0";
+    public static final String ServerURL = "http://growingdever.cafe24.com:3000";
 }
