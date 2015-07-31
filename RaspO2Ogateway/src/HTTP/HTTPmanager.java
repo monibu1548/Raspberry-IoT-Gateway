@@ -57,6 +57,7 @@ public class HTTPmanager implements HTTPcontroller{
         String response = null;
 
         try {
+            url = new URL(serverURL);
 
             httpURLConnection = (HttpURLConnection)url.openConnection();
 
