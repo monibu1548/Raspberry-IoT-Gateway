@@ -1,3 +1,12 @@
+/**
+ *
+ * @author JingyuJung
+ * @version 1.0, 2015.7.31
+ * @git  https://github.com/monibu1548/Raspberry-IoT-Gateway.git
+ * @mail monibu1548@gmail.com
+ *
+ */
+
 package Arduino;
 
 import AppData.ReferenceValue;
@@ -12,8 +21,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * Created by monibu on 2015. 7. 31..
- */
+* @class_name
+* */
 public class ArduinoManager implements HWcontroller{
 
     private CommPortIdentifier portIdentifier;
@@ -23,12 +32,16 @@ public class ArduinoManager implements HWcontroller{
 
     public static final boolean DEV_MODE = true;
 
+
+
     public ArduinoManager(){
         try {
-            // Try Connect Arduino Device
-            // If can't connect Arduino, Program will terminate.
-
+            /**
+             * Try Connect Arduino Device
+             * If can't connect Arduino, Program will terminate.
+             **/
             this.connect(ReferenceValue.Device);
+
 
             // Printing Success message
             System.out.println("[OK] Success Connect " + ReferenceValue.Device);
@@ -42,6 +55,13 @@ public class ArduinoManager implements HWcontroller{
         }
     }
 
+
+
+    /**
+     * Connect Raspberry pi to Arduino by serial communication.
+     * @param portName Arduino Device file in Raspberry pi /dev/ folder
+     * @return void
+     */
     void connect( String portName ) throws Exception {
 
         this.portIdentifier = CommPortIdentifier.getPortIdentifier( portName );
@@ -70,6 +90,11 @@ public class ArduinoManager implements HWcontroller{
         }
     }
 
+    /**
+     * To Control Arduino Actuator by JSON that received http post response.
+     * @param json Receive json by sensor server
+     * @return void
+     */
     @Override
     public void controlByJson(JSONObject json) {
 

@@ -1,11 +1,17 @@
+/**
+ *
+ * @author JingyuJung
+ * @version 1.0, 2015.7.31
+ * @git  https://github.com/monibu1548/Raspberry-IoT-Gateway.git
+ * @mail monibu1548@gmail.com
+ *
+ */
+
 package HTTP;
 
 import Protocol.Data;
 import org.json.simple.JSONObject;
 
-/**
- * Created by monibu on 2015. 7. 31..
- */
 public interface HTTPcontroller {
     JSONObject postJsonData(Data sensorData);
 }

@@ -1,3 +1,12 @@
+/**
+ *
+ * @author JingyuJung
+ * @version 1.0, 2015.7.31
+ * @git  https://github.com/monibu1548/Raspberry-IoT-Gateway.git
+ * @mail monibu1548@gmail.com
+ *
+ */
+
 package HTTP;
 
 import AppData.ReferenceValue;
@@ -12,9 +21,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-/**
- * Created by monibu on 2015. 7. 31..
- */
 public class HTTPmanager implements HTTPcontroller{
 
     private String serverURL = ReferenceValue.ServerURL;
