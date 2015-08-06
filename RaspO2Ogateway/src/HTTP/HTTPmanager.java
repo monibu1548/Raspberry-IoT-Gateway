@@ -20,7 +20,6 @@ import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-
 public class HTTPmanager implements HTTPcontroller{
 
     private String serverURL = ReferenceValue.ServerURL;
