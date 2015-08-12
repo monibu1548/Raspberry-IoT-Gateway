@@ -10,14 +10,19 @@ var tempData102 = $('#temp102');
 var humData102 = $('#hum102');
 var useData102 = $('#user102');
 
-
+var btnLight102 = $('#btnLight102');
+var btnBeam102 = $('#btnBeam102');
+var btnAircon102 = $('#btnAircon102');
 
 var loadData = function(){
 
 	$.ajax(
-		url : 'localhost:3000/1',
-		function(success){
-		
+		type:"GET",
+		dataType:"json",       
+		url:"localhost:3000/1",
+		success:fuction(msg){
+			alert(msg);
+		},
 	});
 }
 
