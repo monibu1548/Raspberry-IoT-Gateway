@@ -161,6 +161,8 @@ void loop(){
 
         }
 
+        index++;
+
         if(index == 3){break;}
     
     }
