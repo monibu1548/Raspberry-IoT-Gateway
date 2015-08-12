@@ -183,3 +183,10 @@ h3.Room {
 .data {
 	width : 21px;
 }
+
+.LightStateOn {
+	content: url(/Res/light_on.png);
+}
+.LightStateOff{
+	content: url(/Res/light_off.png);
+}
