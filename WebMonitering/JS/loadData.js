@@ -16,7 +16,7 @@ var btnAircon102 = $('#btnAircon102');
 
 var loadData = function(){
 
-	$.ajax(
+	$.ajax({
 		type:"GET",
 		dataType:"json",       
 		url:"localhost:3000/1",
