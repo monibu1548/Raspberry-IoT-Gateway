@@ -1,30 +1,37 @@
 // Pin
-// A0
-// A1
-// A2
-// A3
-// A4
-// A5
+// 2 -> DHT11
+// 
+// 4 -> Motion
+// 
+// 
+//
+// 8 -> Light
+// 9 -> Projector pwm
 
 
 // Control
 // Pin 12 -> Aircon
 // Pin 8 -> Light
+// Pin 9 -> Projector ( Servo ) PWM
 
 
+// Sensor Collect
+// Pin 2 -> DHT11
+// Pin 4 -> Motion 
 
 
-
+#include <Servo.h>
 #include <dht11.h>
 
 String serialString;
+Servo projServo;
 
 // DHT11
 dht11 DHT;
 #define DHT11_PIN 2
 
 // motion sensor
-int inputPin = 4; // choose the input pin (for PIR sensor)
+int MotionPin = 4; // choose the input pin (for PIR sensor)
 int pirState = LOW; // we start, assuming no motion detected
 int val = 0; // variable for reading the pin status
 
@@ -32,13 +39,28 @@ int val = 0; // variable for reading the pin status
 // control
 int lightPin = 8;
 int airconPin = 12;
+int projPin = 9;
+
+int controlList[3] = {lightPin, airconPin, projPin};
+
+
+// function List
+void OnLight();
+void OffLight();
+void OnAircon();
+void OffAircon();
+void OnProjector();
+void OffProjector();
+
+
 
 void setup(){
   Serial.begin(9600);
-
+  projServo.attach(projPin);
+  projServo.write(0);
   serialString = "";
 
-  pinMode(inputPin, INPUT); // declare sensor as input
+  pinMode(MotionPin, INPUT); // declare sensor as input
 
   pinMode(lightPin, OUTPUT);
   pinMode(airconPin, OUTPUT);
@@ -47,7 +69,6 @@ void setup(){
 void loop(){
 
   serialString = "";
-  digitalWrite(lightPin, HIGH);
   
 
   int chk;
@@ -81,7 +102,7 @@ void loop(){
 
   // motion sensor
 
-  val = digitalRead(inputPin); // read input value
+  val = digitalRead(MotionPin); // read input value
   if (val == HIGH)
   {
     //Serial.print("O");
@@ -96,7 +117,55 @@ void loop(){
   //finish
 
   Serial.println(serialString);
-  delay(2000);
+
+
+  int index = 0;
+
+  while(Serial.available()){
+    
+      char ONOFF = Serial.read();
+      
+      switch(index){
+        case 0:
+          if(ONOFF == 'O')
+          {
+            OnLight();
+            }
+          else if(ONOFF == 'X')
+          {
+            OffLight();
+            }
+        break;
+
+        case 1:
+          if(ONOFF == 'O')
+          {
+            OnAircon();
+            }
+          else if(ONOFF == 'X')
+          {
+            OffAircon();
+            }
+        break;
+
+        case 2:
+           if(ONOFF == 'O')
+          {
+            OnProjector();
+            }
+          else if(ONOFF == 'X')
+          {
+            OffProjector();
+            }
+        break;
+
+        }
+
+        if(index == 3){break;}
+    
+    }
+
+  delay(1500);
 }
 
 void OnLight(){
@@ -117,7 +186,21 @@ void OffAircon(){
 }
 void OnProjector(){
   // Control Servomoter
+  int pos;
+  for(pos = 0; pos <= 180; pos += 1) // goes from 0 degrees to 180 degrees 
+  {                                  // in steps of 1 degree 
+    projServo.write(pos);              // tell servo to go to position in variable 'pos' 
+    delay(15);                       // waits 15ms for the servo to reach the position 
+  } 
 }
 void OffProjector(){
+  int pos;
+    for(pos = 180; pos>=0; pos-=1)     // goes from 180 degrees to 0 degrees 
+  {                                
+    projServo.write(pos);              // tell servo to go to position in variable 'pos' 
+    delay(15);                       // waits 15ms for the servo to reach the position 
+  } 
+  
   // Control Servomoter
 }
+
