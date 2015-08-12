@@ -20,7 +20,7 @@ var loadData = function(){
 		type:"GET",
 		dataType:"json",       
 		url:"localhost:3000/1",
-		success:fuction(msg){
+		success:function(msg){
 			alert(msg);
 		},
 	});
