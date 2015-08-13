@@ -18,7 +18,7 @@ var loadingData = function(){
 	
 	alert("code1");
 	$.get( 
-                  "http://49.142.11.147:3000/1",
+                  "http://localhost/1",
                   { id: "101" },
                   function(data) {
                      alert("gaga");
