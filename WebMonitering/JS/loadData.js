@@ -19,7 +19,7 @@ var loadingData = function(){
 	alert("code1");
 	$.get( 
                   "http://localhost/1",
-                  { id: "101" },
+					{},
                   function(data) {
                      alert("gaga");
                   }
