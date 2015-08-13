@@ -14,16 +14,16 @@ var btnLight102 = $('#btnLight102');
 var btnBeam102 = $('#btnBeam102');
 var btnAircon102 = $('#btnAircon102');
 
-var loadData = function(){
-
-	$.ajax({
-		type:"GET",
-		dataType:"json",       
-		url:"http://49.142.11.147:3000/1",
-		success:function(msg){
-			alert(msg);
-		},
-	});
+var loadingData = function(){
+	
+	alert("code1");
+	$.get( 
+                  "http://49.142.11.147:3000/1",
+                  { id: "101" },
+                  function(data) {
+                     alert("gaga");
+                  }
+		)
 }
 
 
