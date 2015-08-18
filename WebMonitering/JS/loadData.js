@@ -20,7 +20,7 @@ var loadingData = function(){
                 type:'GET',
 				dataType : 'json',
 				cache : false,
-				url : '49.142.11.147:3000/1',
+				url : 'http://49.142.11.147:3000/1',
                 success : function(data) {
                      alert(data);
                 },
