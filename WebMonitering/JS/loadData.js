@@ -21,7 +21,12 @@ var loadingData = function(){
 				url : 'http://49.142.11.147:3000/1',
                 success : function(data) {
                      alert(data);
-                }
+                },
+				headers:{
+					"Access-Control-Allow-Origin" :  "*",
+					"Access-Control-Allow-Headers": "x-requested-with",
+					"Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE"
+				}
 	});
 }
 
