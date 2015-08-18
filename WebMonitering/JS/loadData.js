@@ -16,14 +16,13 @@ var btnAircon102 = $('#btnAircon102');
 
 var loadingData = function(){
 	
-	alert("code1");
-	$.get( 
-                  "http://localhost/1",
-					{},
-                  function(data) {
-                     alert("gaga");
-                  }
-		)
+	$.ajax({ 
+                type:'GET',
+				url : 'http://localhost:3000/1',
+                success : function(data) {
+                     alert(data);
+                }
+	});
 }
 
 
