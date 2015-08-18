@@ -18,7 +18,7 @@ var loadingData = function(){
 	
 	$.ajax({ 
                 type:'GET',
-				url : 'http://localhost:3000/1',
+				url : 'http://49.142.11.147:3000/1',
                 success : function(data) {
                      alert(data);
                 }
