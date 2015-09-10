@@ -8,11 +8,7 @@
 	<link rel="stylesheet" href="./CSS/style.css">
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	<script src="JS/loadData.js"></script>
-	
-	<script>
-		$(document).ready(loadingData());
-	</script>
+
 	
 </head>
 <body>
@@ -58,25 +54,27 @@
          	          	
             	<h3 class="Room">102 호</h3>
               	<div class="DataFrame">
-                <img src="/Res/tempIcon.png" alt="" class="DataIcon LightStateOn" id="btnLight102">
-                <img src="/Res/waterIcon.png" alt="" class="DataIcon BeamStateOn" id="btnBeam102">
-                <img src="/Res/usingIcon.png" alt="" class="DataIcon AirconStateOn" id="btnAircon102">
+                <img src="/Res/tempIcon.png" alt="" class="DataIcon">
+                <img src="/Res/waterIcon.png" alt="" class="DataIcon">
+                <img src="/Res/usingIcon.png" alt="" class="DataIcon">
 				</div>
               
               <div class="TextData">
-              	<img class="data"></img>
-              	<img class="data">Loading...</img>
-              	<img class="data"></img>
+              	<img class="data" id="temp101"></img>
+              	<img class="data" id="hum101">Loading...</img>
+              	<img class="data" id="use101"></img>
               </div>
                
               <div class="DataFrame">
-                <img src="/Res/light_on.png" alt="" class="ControlIcon">
-                <img src="/Res/beam_on.png" alt="" class="ControlIcon">
-                <img src="/Res/aircon_on.png" alt="" class="ControlIcon">
+                <img src="/Res/light_on.png" alt="" class="ControlIcon LightStateOn" id="btnLight101">
+                <img src="/Res/beam_on.png" alt="" class="ControlIcon BeamStateOn" id="btnBeam101">
+                <img src="/Res/aircon_on.png" alt="" class="ControlIcon AirconStateOn" id="btnAircon101">
 				</div>          
                
                 <p class="ui-li-aside">1F</p>
             </a></li>
+            
+        
             
             <ul data-role="listview" data-inset="true">
         	<li class="ClassData"><a href="#">
@@ -234,5 +232,11 @@
 
 </div><!-- /page -->
 
+	<script src="JS/loadData.js"></script>
+	
+	<script>
+		$(document).ready(loadingData());
+	</script>
+	
 </body>
 </html>

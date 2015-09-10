@@ -16,19 +16,9 @@ var btnAircon102 = $('#btnAircon102');
 
 var loadingData = function(){
 	
-	$.ajax({ 
-                type:'GET',
-				dataType : 'jsonp',
-				cache : false,
-				url : 'http://49.142.11.147:3000/1',
-                success : function(data) {
-                     alert(data);
-                },
-				headers:{
-					"Access-Control-Allow-Origin" :  "*",
-					"Access-Control-Allow-Headers": "x-requested-with",
-					"Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE"
-				}
+	$.getJSON('http://49.142.11.147:3000/1', function(json){
+			tempData101.text(json.temp);
+		
 	});
 }
 
