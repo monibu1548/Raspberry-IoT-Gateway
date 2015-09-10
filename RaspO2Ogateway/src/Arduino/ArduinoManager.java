@@ -63,8 +63,9 @@ public class ArduinoManager implements HWcontroller{
      * @return void
      */
     void connect( String portName ) throws Exception {
-
-        this.portIdentifier = CommPortIdentifier.getPortIdentifier( portName );
+        
+        System.setProperty("gnu.io.rxtx.SerialPorts", portName);
+        this.portIdentifier = CommPortIdentifier.getPortIdentifier( "/dev/ttyACM0" );
 
         if( portIdentifier.isCurrentlyOwned() ) {
 
