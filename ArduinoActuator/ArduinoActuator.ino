@@ -14,7 +14,6 @@
 // Pin 8 -> Light
 // Pin 9 -> Projector ( Servo ) PWM
 
-
 // Sensor Collect
 // Pin 2 -> DHT11
 // Pin 4 -> Motion 
@@ -41,6 +40,11 @@ int lightPin = 8;
 int airconPin = 12;
 int projPin = 9;
 
+// state
+#define PROJON 1
+#define PROJOFF 0
+int projState;
+
 int controlList[3] = {lightPin, airconPin, projPin};
 
 
@@ -58,6 +62,7 @@ void setup(){
   Serial.begin(9600);
   projServo.attach(projPin);
   projServo.write(0);
+  projState = PROJOFF;
   serialString = "";
 
   pinMode(MotionPin, INPUT); // declare sensor as input
@@ -167,7 +172,7 @@ void loop(){
     
     }
 
-  delay(1500);
+  delay(1000);
 }
 
 void OnLight(){
@@ -187,6 +192,12 @@ void OffAircon(){
   digitalWrite(airconPin, LOW);
 }
 void OnProjector(){
+
+  // Check change state
+  if(projState == PROJON){
+    return;
+    }
+  
   // Control Servomoter
   int pos;
   for(pos = 0; pos <= 180; pos += 1) // goes from 0 degrees to 180 degrees 
@@ -194,15 +205,25 @@ void OnProjector(){
     projServo.write(pos);              // tell servo to go to position in variable 'pos' 
     delay(15);                       // waits 15ms for the servo to reach the position 
   } 
+
+  projState = PROJON;
 }
 void OffProjector(){
+
+  // Check change state
+  if(projState == PROJOFF){
+    return;
+    }
+    
   int pos;
     for(pos = 180; pos>=0; pos-=1)     // goes from 180 degrees to 0 degrees 
   {                                
     projServo.write(pos);              // tell servo to go to position in variable 'pos' 
     delay(15);                       // waits 15ms for the servo to reach the position 
   } 
-  
+
   // Control Servomoter
+
+  projState = PROJOFF;
 }
 
