@@ -1,25 +1,37 @@
-var tempData101 = $('#temp101');
-var humData101 = $('#hum101');
-var useData101 = $('#user101');
+var Data101 = $('#data101');
 
-var btnLight101 = $('#btnLight101');
-var btnBeam101 = $('#btnBeam101');
-var btnAircon101 = $('#btnAircon101');
-
-var tempData102 = $('#temp102');
-var humData102 = $('#hum102');
-var useData102 = $('#user102');
-
-var btnLight102 = $('#btnLight102');
-var btnBeam102 = $('#btnBeam102');
-var btnAircon102 = $('#btnAircon102');
+var Data102 = $('#data102');
 
 var loadingData = function(){
 	
-	$.getJSON('http://49.142.11.147:3000/1', function(json){
-			tempData101.text(json.temp);
+	
+	$.ajax({
+    url: "http://growingdever.cafe24.com:3001/1",
+    type: 'GET',
+    success: function(res) { 
+        Data101.val(res.temp +"          "+res.hum + "          " + res.inuse);
+    },
+	error: function(res){
+		alert("errer 101");
+		console.log(res);
+	}	
 		
+});
+	
+	$.ajax({
+    url: "http://growingdever.cafe24.com:3001/2",
+    type: 'GET',
+    success: function(res) { 
+        Data102.val(res.temp +"          "+res.hum + "          " + res.inuse);
+    },
+	error: function(res){
+		alert("error 102");
+		console.log(res);
+	}
 	});
+	
+	
+	
 }
 
 
